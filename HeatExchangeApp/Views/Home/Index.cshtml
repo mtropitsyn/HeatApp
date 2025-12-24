@@ -197,7 +197,6 @@
                 success: function (res) {
                     if (res.success) {
                         showResults(res.result);
-                        // ❌ НИКАКОЙ ПЕРЕЗАГРУЗКИ СТРАНИЦЫ
                     } else {
                         alert('Ошибка: ' + (res.error || 'Неизвестная ошибка'));
                     }

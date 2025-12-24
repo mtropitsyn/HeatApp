@@ -2540,11 +2540,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mtrop\\Downloads\\HeatExchangeApp\\HeatExchangeApp.csproj",
+      "projectUniqueName": "C:\\HeatApp\\HeatExchangeApp\\HeatExchangeApp.csproj",
       "projectName": "HeatExchangeApp",
-      "projectPath": "C:\\Users\\mtrop\\Downloads\\HeatExchangeApp\\HeatExchangeApp.csproj",
+      "projectPath": "C:\\HeatApp\\HeatExchangeApp\\HeatExchangeApp.csproj",
       "packagesPath": "C:\\Users\\mtrop\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mtrop\\Downloads\\HeatExchangeApp\\obj\\",
+      "outputPath": "C:\\HeatApp\\HeatExchangeApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

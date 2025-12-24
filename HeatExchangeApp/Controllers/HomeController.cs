@@ -179,8 +179,7 @@ public class HomeController : Controller
             heights.Add(y);
         }
 
-        // Q и эффективность
-        double Q = Math.Abs(Cm * p.CrossSection * (tMat[0] - p.MaterialInletTemp)) / 1000; // кВт
+        double Q = Math.Abs(Cm * p.CrossSection * (tMat[0] - p.MaterialInletTemp)) / 1000;
         double Cmin = Math.Min(Cm, Cg) * p.CrossSection;
         double eff = Cmin > 0 ? Q * 1000 / (Cmin * Math.Abs(p.MaterialInletTemp - p.GasInletTemp)) * 100 : 0;
 
