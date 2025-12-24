@@ -1,0 +1,341 @@
+﻿@{
+    ViewData["Title"] = "Расчёт теплообмена в противоточном слое (УрФУ)";
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .card {
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-xl-11">
+                <!-- Форма ввода -->
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white text-center py-4">
+                        <h3 class="mb-0">Расчёт теплообмена в противоточном слое</h3>
+                        <p class="mb-0">Модель с распределёнными параметрами</p>
+                    </div>
+                    <div class="card-body p-5">
+                        <form id="calculationForm">
+                            <div class="mb-4">
+                                <label class="form-label fw-bold">Название расчёта</label>
+                                <input type="text" class="form-control form-control-lg" id="Request_Name" value="Контрольный пример — охлаждение окатышей" placeholder="Введите название для сохранения" />
+                            </div>
+
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Высота слоя H₀, м</label>
+                                    <input type="number" step="any" class="form-control" id="Request_Parameters_Height" value="3" required />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Площадь поперечного сечения S, м²</label>
+                                    <input type="number" step="any" class="form-control" id="Request_Parameters_CrossSection" value="3.14" required />
+                                    <small class="text-muted">Диаметр аппарата 2 м → S = π × 1² ≈ 3.14 м²</small>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Массовый расход материала Gₘ, кг/ч</label>
+                                    <input type="number" step="any" class="form-control" id="Request_Parameters_MaterialFlowRate" value="6192" required />
+                                    <small class="text-muted">1.72 кг/с × 3600 = 6192 кг/ч</small>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Объёмный расход газа V_g, м³/ч</label>
+                                    <input type="number" step="any" class="form-control" id="Request_Parameters_GasFlowRate" value="8814" required />
+                                    <small class="text-muted">w_g = 0.78 м/с × S = 3.14 м² × 3600 ≈ 8814 м³/ч</small>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Температура материала на входе t', °C (загрузка сверху)</label>
+                                    <input type="number" step="any" class="form-control" id="Request_Parameters_MaterialInletTemp" value="600" required />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Температура газа на входе T', °C (продувание снизу)</label>
+                                    <input type="number" step="any" class="form-control" id="Request_Parameters_GasInletTemp" value="0" required />
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Удельная теплоёмкость материала Cₘ, Дж/(кг·°C)</label>
+                                    <input type="number" step="any" class="form-control" id="Request_Parameters_MaterialSpecificHeat" value="1490" required />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Объёмная теплоёмкость газа C_g, кДж/(м³·°C)</label>
+                                    <input type="number" step="any" class="form-control" id="Request_Parameters_GasSpecificHeat" value="1.31" required />
+                                    <small class="text-muted">Средняя при 200°C</small>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Объёмный коэффициент теплоотдачи αᵥ, Вт/(м³·°C)</label>
+                                    <input type="number" step="any" class="form-control" id="Request_Parameters_VolumetricHeatTransferCoeff" value="2460" required />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Количество шагов расчёта</label>
+                                    <input type="number" class="form-control" id="Request_Parameters_CalculationSteps" value="400" required />
+                                </div>
+                            </div>
+
+                            <div class="d-grid gap-3 mt-5">
+                                <button type="submit" class="btn btn-success btn-lg">Выполнить расчёт</button>
+                                <button type="button" class="btn btn-outline-secondary btn-lg" onclick="resetForm()">Сбросить форму</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Сохранённые расчёты -->
+                <div class="card shadow">
+                    <div class="card-header bg-secondary text-white">
+                        <h5 class="mb-0">Сохранённые расчёты</h5>
+                    </div>
+                    <div class="card-body" style="max-height: 400px; overflow-y: auto;">
+                        <div id="savedCalculationsList">
+                            @if (ViewBag.SavedCalculations is IEnumerable<Calculation> calcs && calcs.Any())
+                            {
+                                foreach (var calc in calcs)
+                                {
+                                    <div class="border p-3 mb-3 rounded bg-light d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <strong>@calc.Name</strong><br>
+                                            <small class="text-muted">@calc.CreatedAt.ToString("dd.MM.yyyy HH:mm")</small>
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-outline-primary btn-sm me-1" onclick="loadCalculation(@calc.Id)">Загрузить</button>
+                                            <button class="btn btn-outline-success btn-sm me-1" onclick="exportCalculation(@calc.Id)">CSV</button>
+                                            <button class="btn btn-outline-danger btn-sm" onclick="deleteCalculation(@calc.Id)">Удалить</button>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <p class="text-center text-muted py-5">Нет сохранённых расчётов</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Результаты -->
+                <div id="resultsContainer" style="display: none;" class="mt-4">
+                    <div class="card shadow-lg">
+                        
+
+                            <div class="row mb-5">
+                                <div class="col-lg-6">
+                                    <canvas id="temperatureChart" height="300"></canvas>
+                                </div>
+                                <div class="col-lg-6">
+                                    <canvas id="differenceChart" height="300"></canvas>
+                                </div>
+                            </div>
+
+                            <h5 class="text-center mb-3">Табличные данные (по высоте слоя)</h5>
+                            <div class="table-responsive" style="max-height: 400px;">
+                                <table class="table table-striped table-hover">
+                                    <thead class="table-dark sticky-top">
+                                        <tr>
+                                            <th>Высота y, м (от низа)</th>
+                                            <th>t материала, °C</th>
+                                            <th>T газа, °C</th>
+                                            <th>ΔT, °C</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="resultsTableBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Скрипты -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        let tempChart = null;
+        let diffChart = null;
+
+        $('#calculationForm').on('submit', function (e) {
+            e.preventDefault();
+
+            const data = {
+                Name: $('#Request_Name').val() || "Без названия",
+                Parameters: {
+                    Height: parseFloat($('#Request_Parameters_Height').val()),
+                    CrossSection: parseFloat($('#Request_Parameters_CrossSection').val()),
+                    MaterialFlowRate: parseFloat($('#Request_Parameters_MaterialFlowRate').val()),
+                    GasFlowRate: parseFloat($('#Request_Parameters_GasFlowRate').val()),
+                    MaterialInletTemp: parseFloat($('#Request_Parameters_MaterialInletTemp').val()),
+                    GasInletTemp: parseFloat($('#Request_Parameters_GasInletTemp').val()),
+                    MaterialSpecificHeat: parseFloat($('#Request_Parameters_MaterialSpecificHeat').val()),
+                    GasSpecificHeat: parseFloat($('#Request_Parameters_GasSpecificHeat').val()),
+                    VolumetricHeatTransferCoeff: parseFloat($('#Request_Parameters_VolumetricHeatTransferCoeff').val()),
+                    CalculationSteps: parseInt($('#Request_Parameters_CalculationSteps').val())
+                }
+            };
+
+            $.ajax({
+                url: '/Home/Calculate',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                success: function (res) {
+                    if (res.success) {
+                        showResults(res.result);
+                        // ❌ НИКАКОЙ ПЕРЕЗАГРУЗКИ СТРАНИЦЫ
+                    } else {
+                        alert('Ошибка: ' + (res.error || 'Неизвестная ошибка'));
+                    }
+                },
+                error: function () {
+                    alert('Ошибка соединения с сервером');
+                }
+            });
+        });
+
+        function showResults(r) {
+            $('#resultsContainer').slideDown();
+
+            
+
+            // Таблица
+            const tbody = $('#resultsTableBody');
+            tbody.empty();
+            const step = Math.max(1, Math.floor(r.heights.length / 30));
+
+            for (let i = 0; i < r.heights.length; i += step) {
+                tbody.append(`
+                    <tr>
+                        <td>${r.heights[i].toFixed(2)}</td>
+                        <td>${r.materialTemperatures[i].toFixed(1)}</td>
+                        <td>${r.gasTemperatures[i].toFixed(1)}</td>
+                        <td>${r.temperatureDifferences[i].toFixed(1)}</td>
+                    </tr>
+                `);
+            }
+
+            // Уничтожаем старые графики
+            if (tempChart) tempChart.destroy();
+            if (diffChart) diffChart.destroy();
+
+            // График температур
+            tempChart = new Chart(document.getElementById('temperatureChart'), {
+                type: 'line',
+                data: {
+                    labels: r.heights.map(h => h.toFixed(2)),
+                    datasets: [
+                        {
+                            label: 'Температура материала t(y)',
+                            data: r.materialTemperatures,
+                            borderColor: 'red',
+                            tension: 0.25
+                        },
+                        {
+                            label: 'Температура газа T(y)',
+                            data: r.gasTemperatures,
+                            borderColor: 'blue',
+                            tension: 0.25
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'top' }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Высота слоя y, м'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Температура, °C'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // График разности температур
+            diffChart = new Chart(document.getElementById('differenceChart'), {
+                type: 'line',
+                data: {
+                    labels: r.heights.map(h => h.toFixed(2)),
+                    datasets: [
+                        {
+                            label: 'ΔT = |t − T|',
+                            data: r.temperatureDifferences,
+                            borderColor: 'green',
+                            fill: true,
+                            tension: 0.25
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+        }
+
+        function loadCalculation(id) {
+            $.get('/Home/GetCalculation', { id: id }, function (data) {
+                $('#Request_Name').val(data.name);
+                $('#Request_Parameters_Height').val(data.parameters.height);
+                $('#Request_Parameters_CrossSection').val(data.parameters.crossSection);
+                $('#Request_Parameters_MaterialFlowRate').val(data.parameters.materialFlowRate);
+                $('#Request_Parameters_GasFlowRate').val(data.parameters.gasFlowRate);
+                $('#Request_Parameters_MaterialInletTemp').val(data.parameters.materialInletTemp);
+                $('#Request_Parameters_GasInletTemp').val(data.parameters.gasInletTemp);
+                $('#Request_Parameters_MaterialSpecificHeat').val(data.parameters.materialSpecificHeat);
+                $('#Request_Parameters_GasSpecificHeat').val(data.parameters.gasSpecificHeat);
+                $('#Request_Parameters_VolumetricHeatTransferCoeff').val(data.parameters.volumetricHeatTransferCoeff);
+                $('#Request_Parameters_CalculationSteps').val(data.parameters.calculationSteps);
+
+                showResults(data.result);
+            });
+        }
+
+        function exportCalculation(id) {
+            window.open('/Home/ExportToCsv?id=' + id, '_blank');
+        }
+
+        function deleteCalculation(id) {
+            if (confirm('Удалить этот расчёт?')) {
+                $.post('/Home/DeleteCalculation', { id: id }, function (res) {
+                    if (res.success) {
+                        location.reload();
+                    }
+                });
+            }
+        }
+
+        function resetForm() {
+            if (confirm('Сбросить форму?')) {
+                location.reload();
+            }
+        }
+    </script>
+
+</body>
+</html>
