@@ -1,34 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\mtrop\\Downloads\\HeatExchangeApp\\",
+  "WorkspaceRootPath": "C:\\HeatApp\\HeatExchangeApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|c:\\users\\mtrop\\downloads\\heatexchangeapp\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|solutionrelative:views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|c:\\users\\mtrop\\downloads\\heatexchangeapp\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|solutionrelative:views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|c:\\users\\mtrop\\downloads\\heatexchangeapp\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|solutionrelative:views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|c:\\users\\mtrop\\downloads\\heatexchangeapp\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|c:\\users\\mtrop\\downloads\\heatexchangeapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|c:\\heatapp\\heatexchangeapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|c:\\users\\mtrop\\downloads\\heatexchangeapp\\models\\calculation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|solutionrelative:models\\calculation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|c:\\heatapp\\heatexchangeapp\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|c:\\users\\mtrop\\downloads\\heatexchangeapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|c:\\heatapp\\heatexchangeapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|c:\\heatapp\\heatexchangeapp\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|solutionrelative:views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|c:\\heatapp\\heatexchangeapp\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|solutionrelative:views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|c:\\heatapp\\heatexchangeapp\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|solutionrelative:views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|c:\\heatapp\\heatexchangeapp\\models\\calculation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9D487AE-4FDD-4544-38AD-1884A5107703}|HeatExchangeApp.csproj|solutionrelative:models\\calculation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,54 +38,51 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Privacy.cshtml",
-              "DocumentMoniker": "C:\\Users\\mtrop\\Downloads\\HeatExchangeApp\\Views\\Home\\Privacy.cshtml",
+              "DocumentMoniker": "C:\\HeatApp\\HeatExchangeApp\\Views\\Home\\Privacy.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Privacy.cshtml",
-              "ToolTip": "C:\\Users\\mtrop\\Downloads\\HeatExchangeApp\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\HeatApp\\HeatExchangeApp\\Views\\Home\\Privacy.cshtml",
               "RelativeToolTip": "Views\\Home\\Privacy.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-24T17:22:55.06Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-24T17:22:55.06Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "_ViewImports.cshtml",
-              "DocumentMoniker": "C:\\Users\\mtrop\\Downloads\\HeatExchangeApp\\Views\\_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\HeatApp\\HeatExchangeApp\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "Views\\_ViewImports.cshtml",
-              "ToolTip": "C:\\Users\\mtrop\\Downloads\\HeatExchangeApp\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\HeatApp\\HeatExchangeApp\\Views\\_ViewImports.cshtml",
               "RelativeToolTip": "Views\\_ViewImports.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-24T17:22:46.571Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-24T17:22:46.571Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "_ViewStart.cshtml",
-              "DocumentMoniker": "C:\\Users\\mtrop\\Downloads\\HeatExchangeApp\\Views\\_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\HeatApp\\HeatExchangeApp\\Views\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "Views\\_ViewStart.cshtml",
-              "ToolTip": "C:\\Users\\mtrop\\Downloads\\HeatExchangeApp\\Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\HeatApp\\HeatExchangeApp\\Views\\_ViewStart.cshtml",
               "RelativeToolTip": "Views\\_ViewStart.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-24T17:22:42.605Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-24T17:22:42.605Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Calculation.cs",
-              "DocumentMoniker": "C:\\Users\\mtrop\\Downloads\\HeatExchangeApp\\Models\\Calculation.cs",
+              "DocumentMoniker": "C:\\HeatApp\\HeatExchangeApp\\Models\\Calculation.cs",
               "RelativeDocumentMoniker": "Models\\Calculation.cs",
-              "ToolTip": "C:\\Users\\mtrop\\Downloads\\HeatExchangeApp\\Models\\Calculation.cs",
+              "ToolTip": "C:\\HeatApp\\HeatExchangeApp\\Models\\Calculation.cs",
               "RelativeToolTip": "Models\\Calculation.cs",
               "ViewState": "AgIAAC4AAAAAAAAAAAAAADoAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -93,37 +90,36 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\mtrop\\Downloads\\HeatExchangeApp\\Controllers\\HomeController.cs",
+              "DocumentMoniker": "C:\\HeatApp\\HeatExchangeApp\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\mtrop\\Downloads\\HeatExchangeApp\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\HeatApp\\HeatExchangeApp\\Controllers\\HomeController.cs",
               "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAAAGgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAwwL8AAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-24T15:38:18.62Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\mtrop\\Downloads\\HeatExchangeApp\\Views\\Home\\Index.cshtml",
+              "DocumentMoniker": "C:\\HeatApp\\HeatExchangeApp\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\mtrop\\Downloads\\HeatExchangeApp\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\HeatApp\\HeatExchangeApp\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAABQBAAAAAAAAAAAAABwAAABVAAAAAAAAAA==",
+              "ViewState": "AgIAAFMBAAAAAAAAAAAAAFMBAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-24T15:30:32.674Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-24T15:30:32.674Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\mtrop\\Downloads\\HeatExchangeApp\\Program.cs",
+              "DocumentMoniker": "C:\\HeatApp\\HeatExchangeApp\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\mtrop\\Downloads\\HeatExchangeApp\\Program.cs",
+              "ToolTip": "C:\\HeatApp\\HeatExchangeApp\\Program.cs",
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
