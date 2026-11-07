@@ -6,7 +6,8 @@ builder.Services.AddControllersWithViews();
 
 // Добавляем EF Core с SQLite
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite("Data Source=calculations.db"));
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")
+        ?? "Data Source=calculations.db"));
 
 var app = builder.Build();
 

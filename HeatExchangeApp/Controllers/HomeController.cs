@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using HeatExchangeApp.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 using System.Text;
@@ -38,6 +39,14 @@ public class HomeController : Controller
         {
             return Json(new { success = false, error = "Проверьте значения: высота, площадь, расходы и α_v должны быть > 0" });
         }
+
+        if (input.Parameters.CalculationSteps is < 1 or > 10000)
+            return Json(new { success = false, error = "Количество шагов должно быть от 1 до 10000" });
+
+        if (!double.IsFinite(input.Parameters.MaterialSpecificHeat) ||
+            !double.IsFinite(input.Parameters.GasSpecificHeat) ||
+            input.Parameters.MaterialSpecificHeat <= 0 || input.Parameters.GasSpecificHeat <= 0)
+            return Json(new { success = false, error = "Теплоёмкости должны быть положительными числами" });
 
         try
         {
@@ -116,6 +125,12 @@ public class HomeController : Controller
         var bytes = Encoding.UTF8.GetBytes(sb.ToString());
         return File(bytes, "text/csv", $"{calc.Name.Replace(" ", "_")}.csv");
     }
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error() => View(new ErrorViewModel
+    {
+        RequestId = System.Diagnostics.Activity.Current?.Id ?? HttpContext.TraceIdentifier
+    });
 
     private CalculationResult PerformCalculation(CalculationInput input)
     {

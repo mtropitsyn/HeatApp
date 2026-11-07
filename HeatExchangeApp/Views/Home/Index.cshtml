@@ -1,4 +1,5 @@
-﻿@{
+@{
+    Layout = null;
     ViewData["Title"] = "Расчёт теплообмена в противоточном слое ";
 }
 
@@ -83,7 +84,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label fw-bold">Количество шагов расчёта</label>
-                                    <input type="number" class="form-control" id="Request_Parameters_CalculationSteps" value="400" required />
+                                    <input type="number" class="form-control" id="Request_Parameters_CalculationSteps" min="1" max="10000" step="1" value="400" required />
                                 </div>
                             </div>
 
