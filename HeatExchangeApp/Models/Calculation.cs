@@ -11,14 +11,11 @@ public class Calculation
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-    // Входные данные — сохраняем как JSON-строку
     public string InputJson { get; set; } = string.Empty;
 
-    // Результаты расчёта — тоже как JSON-строка
     public string ResultJson { get; set; } = string.Empty;
 }
 
-// Классы для десериализации входных данных (точно совпадают с тем, что отправляет JavaScript)
 public class CalculationInput
 {
     public string? Name { get; set; }
@@ -62,7 +59,6 @@ public class Parameters
     public int CalculationSteps { get; set; } = 400;
 }
 
-// Класс для результата расчёта (то, что возвращаем клиенту и сохраняем)
 public class CalculationResult
 {
     public double HeatTransferCoefficient { get; set; } // α, Вт/(м²·°C)
