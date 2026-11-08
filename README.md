@@ -31,9 +31,3 @@ dotnet run --project HeatExchangeApp/HeatExchangeApp.csproj --launch-profile htt
 ```bash
 dotnet build HeatExchangeApp/HeatExchangeApp.csproj --configuration Release
 ```
-
-## Что ещё доработать
-
-- Вынести расчёты из контроллера в отдельный сервис.
-- Проверить формулы по эталонным примерам и добавить тесты.
-- Добавить сравнение нескольких расчётов.
